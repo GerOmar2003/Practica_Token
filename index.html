@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Iniciar sesión - Sistema Web</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="login-box">
+    <h2>Bienvenido de nuevo</h2>
+    <p class="subtext">Inicia sesión para acceder a tu panel</p>
+    <form action="login.php" method="POST">
+      <label><i class="fas fa-user"></i> Usuario</label>
+      <input type="text" name="username" placeholder="Escriba aquí su usuario" required>
+
+      <label><i class="fas fa-lock"></i> Contraseña</label>
+      <div class="password-container">
+        <input type="password" name="password" id="password" placeholder="Escriba aquí su contraseña" required>
+        <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+      </div>
+
+      <button type="submit">Iniciar sesión</button>
+    </form>
+  </div>
+
+  <!-- Script para mostrar/ocultar contraseña -->
+  <script>
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+
+    togglePassword.addEventListener('click', function () {
+      const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+      this.classList.toggle('fa-eye');
+      this.classList.toggle('fa-eye-slash');
+    });
+  </script>
+</body>
+</html>
